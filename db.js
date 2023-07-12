@@ -1,7 +1,17 @@
+ import dotenv from 'dotenv'
+ dotenv.config()
+ 
  import { MongoClient } from "mongodb";
+ 
+ 
  import obj from "mongodb"
 
-const mongoConnectString = 'mongodb://127.0.0.1:27017';
+ 
+
+ 
+ const mongoConnectString = process.env.MONGO_URL ;
+ 
+
 
  export async function dbConnection() {
   const client = new MongoClient(mongoConnectString);
@@ -10,7 +20,8 @@ const mongoConnectString = 'mongodb://127.0.0.1:27017';
   return client;
 }
 
-export const client = await dbConnection();
+
 export var ObjectId = obj.ObjectId;
+export const client = await dbConnection();
 
 

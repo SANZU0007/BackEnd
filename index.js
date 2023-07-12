@@ -1,9 +1,16 @@
+import dotenv from "dotenv"
+dotenv.config();
+
 import express from "express";
+
+
+
 
 import { studentRouter } from "./Routes/route.js";
 
-const PORT = 9000;
+
 const app = express();
+const PORT =  process.env.PORT;
 
 app.use(express.json());
   
